@@ -37,7 +37,7 @@ namespace Server
                 {
                     ClientId = "m2m.client",
                     ClientName = "Client Credentials Client",
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     ClientSecrets = { new Secret("ClientSecret1".Sha256()) },
                     AllowedScopes = { "CoffeeAPI.read", "CoffeeAPI.write" }
                 },
