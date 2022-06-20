@@ -1,30 +1,21 @@
 ﻿using API.Models;
-using DataAccess.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Services
 {
-	public class CoffeeShopService : ICoffeeShopService
+	public class CoffeeShopService
 	{
-        private readonly ApplicationDbContext dbContext;
-
-        public CoffeeShopService(ApplicationDbContext dbContext)
+        public List<CoffeeShopModel> List()
         {
-            this.dbContext = dbContext;
-        }
-
-        public async Task<List<CoffeeShopModel>> List()
-        {
-            var coffeeShops = await (from shop in dbContext.CoffeeShops
-                                     select new CoffeeShopModel()
-                                     {
-                                         Id = shop.Id,
-                                         Name = shop.Name,
-                                         OpeningHours = shop.OpeningHours,
-                                         Address = shop.Address
-                                     }).ToListAsync();
-
-            return coffeeShops;
+            return new List<CoffeeShopModel>
+            {
+                new()
+                {
+                    Id = 1,
+                    Name = "Name",
+                    OpeningHours = "1-2",
+                    Address = "Address"
+                }
+            };
         }
     }
 }
