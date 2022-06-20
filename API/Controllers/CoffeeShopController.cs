@@ -10,17 +10,17 @@ namespace API.Controllers
 	[Authorize]
 	public class CoffeeShopController : ControllerBase
 	{
-        private readonly CoffeeShopService coffeeShopService;
+        private readonly CoffeeShopService _coffeeShopService;
 
 		public CoffeeShopController(CoffeeShopService coffeeShopService)
 		{
-			this.coffeeShopService = coffeeShopService;
+			_coffeeShopService = coffeeShopService;
 		}
 
 		[HttpGet]
 		public IActionResult List()
 		{
-			var coffeeShops = coffeeShopService.List();
+			var coffeeShops = _coffeeShopService.List();
 			return Ok(coffeeShops);
 		}
 	}
